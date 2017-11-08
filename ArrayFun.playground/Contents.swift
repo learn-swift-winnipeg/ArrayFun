@@ -1,16 +1,15 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
 
 var digits = [1,2,3,4,5,6,7,8,9]
 
-
+// This is nice
 if digits.isEmpty {
     print("No digits here...")
 }else{
     print("Hey look, some digits")
 }
 
+// Your basic for loop
 func sumStuff() -> Int{
     var sum: Int = 0
     for i in digits{
@@ -19,6 +18,7 @@ func sumStuff() -> Int{
     return sum
 }
 
+// Me being dumb
 typealias collection = [Int]
 func coolerSumStuff(digits: collection) -> Int{
     var sum : Int
@@ -26,7 +26,9 @@ func coolerSumStuff(digits: collection) -> Int{
     return sum
 }
 
+// Want to be explicit, that only functions that return Ints are allowed
 typealias timeable = () -> (Int)
+// Timing function that takes what you give it
 func time(someFunc: timeable) -> (elapsedTime: Double, answer: Int) {
     var elapsedTime: Double
     var answer: Int
@@ -35,6 +37,7 @@ func time(someFunc: timeable) -> (elapsedTime: Double, answer: Int) {
     elapsedTime = Double(clock() - begin) / Double(CLOCKS_PER_SEC)
     return (elapsedTime, answer)
 }
+// Compare for loop style vs functional style
 var results = time{sumStuff()}
 print("sumStuff function took \(results.elapsedTime), and the answer was \(results.answer)")
 var otherResults = time{coolerSumStuff(digits: digits)}
